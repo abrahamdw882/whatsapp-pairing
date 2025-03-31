@@ -35,7 +35,7 @@ const startSession = async () => {
     sock.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect } = update;
         if (connection === 'close') {
-            const reason = new Boom(lastDisconnect?.error)?.output.statusCode;
+            const reason = lastDisconnect?.error?.output?.statusCode;
             if (reason === DisconnectReason.loggedOut) {
                 console.log(chalk.yellow.bold('Logged out, please scan QR code again.'));
                 process.exit(1);
@@ -51,6 +51,10 @@ const startSession = async () => {
         }
         if (connection === 'open') {
             console.log(chalk.green.bold('Connection successful!'));
+
+            const selfJid = phoneNumber.replace(/\D/g, '') + '@s.whatsapp.net';
+            await sock.sendMessage(selfJid, { text: 'TESTING 1,2,3 NIGGA' });
+            console.log(chalk.cyan.bold('Message sent to yourself: TESTING 1,2,3'));
         }
     });
 
