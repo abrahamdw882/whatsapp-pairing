@@ -1,16 +1,17 @@
 {
   "name": "whatsapp-pairing",
-  "version": "0.0.1",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
   "main": "pair.js",
   "scripts": {
-    "start": "node pair.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "NOT ABRAHAM",
+  "license": "ISC",
   "dependencies": {
-    "@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
+    "@fizzxydev/baileys-pro": "^8.6.11",
     "chalk": "^5.4.1",
     "readline": "^1.3.0"
-  },
-  "author": "NOT ABRAHAM",
-  "license": "MIT"
+  }
 }
